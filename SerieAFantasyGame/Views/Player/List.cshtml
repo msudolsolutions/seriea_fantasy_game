@@ -1,24 +1,14 @@
-@model SerieAFantasyGame.ViewModels.PlayerListViewModel
+@model PlayerListViewModel
 
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Serie A Fantasy Game</title>
-    </head>
-    <body>
-        <h1>@Model.CurrentRound</h1>
-        @foreach (var player in Model.Players)
-        {
-            <div>
-                <h2>@player.Name</h2>
-                <p>Position: @player.Position</p>
-                <p>Team: @player.Team</p>
-                <p>Price: @player.Price</p>
-                <p>Total Points: @player.TotalPoints</p>
-                <p>Is In Form: @player.IsInForm</p>
-            </div>
-        }
-    </body>
-</html>
+<h1>@Model.CurrentRound</h1>
+@foreach (var player in Model.Players)
+{
+    <div>
+        <h2>@player.Name</h2>
+        <p>Position: @player.Position</p>
+        <p>Team: @player.Team</p>
+        <p>Price: @player.Price</p>
+        <p>Total Points: @player.TotalPoints</p>
+        <p>Is In Form: @player.IsInForm</p>
+    </div>
+}
