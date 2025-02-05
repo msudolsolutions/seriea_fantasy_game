@@ -1,4 +1,4 @@
-@model IEnumerable<SerieAFantasyGame.Models.Player>
+@model SerieAFantasyGame.ViewModels.PlayerListViewModel
 
 <!DOCTYPE html>
 
@@ -8,8 +8,8 @@
         <title>Serie A Fantasy Game</title>
     </head>
     <body>
-        <h1>@ViewBag.CurrentStatistics</h1>
-        @foreach (var player in Model)
+        <h1>@Model.CurrentRound</h1>
+        @foreach (var player in Model.Players)
         {
             <div>
                 <h2>@player.Name</h2>

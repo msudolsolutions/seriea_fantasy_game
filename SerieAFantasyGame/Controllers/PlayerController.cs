@@ -1,22 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using SerieAFantasyGame.Models;
+using SerieAFantasyGame.ViewModels;
 namespace SerieAFantasyGame.Controllers;
 
 
-public class PlayerController : Controller
+public class PlayerController(IPlayerRepository playerRepository, IStatisticsRepository statisticsRepository) : Controller
 {
-    private readonly IPlayerRepository _playerRepository;
-    private readonly IStatisticsRepository _statisticsRepository;
-
-    public PlayerController(IPlayerRepository playerRepository, IStatisticsRepository statisticsRepository)
-    {
-        _playerRepository = playerRepository;
-        _statisticsRepository = statisticsRepository;
-    }
+    private readonly IPlayerRepository _playerRepository = playerRepository;
+    private readonly IStatisticsRepository _statisticsRepository = statisticsRepository;
 
     public IActionResult List()
     {
-        ViewBag.CurrentStatistics = "Appearances";
-        return View(_playerRepository.AllPlayers);
+        //ViewBag.CurrentRound = "Round 16";
+        //return View(_playerRepository.AllPlayers);
+        PlayerListViewModel playerListViewModel = new(_playerRepository.AllPlayers, "Round 16");
+        return View(playerListViewModel);
     }
 }
