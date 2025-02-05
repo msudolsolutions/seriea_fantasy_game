@@ -1,3 +1,6 @@
+using SerieAFantasyGame.Models;
+
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IStatisticsRepository, MockStatisticsRepository>();
 builder.Services.AddScoped<IPlayerRepository, MockPlayerRepository>();
