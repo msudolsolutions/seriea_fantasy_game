@@ -6,6 +6,7 @@ public class Player
     public string Name { get; set; } = string.Empty;
     public string Position { get; set; } = string.Empty;
     public string Team { get; set; } = string.Empty;
+    public string? ImageThumbnailUrl { get; set; }
     public int Price { get; set; }
     public int TotalPoints { get; set; }
     public Statistics Stats { get; set; } = default!;

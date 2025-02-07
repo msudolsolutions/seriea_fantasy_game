@@ -1,14 +1,60 @@
 @model PlayerListViewModel
 
+
 <h1>@Model.CurrentRound</h1>
-@foreach (var player in Model.Players)
-{
-    <div>
-        <h2>@player.Name</h2>
-        <p>Position: @player.Position</p>
-        <p>Team: @player.Team</p>
-        <p>Price: @player.Price</p>
-        <p>Total Points: @player.TotalPoints</p>
-        <p>Is In Form: @player.IsInForm</p>
-    </div>
-}
+@* <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    @foreach (var player in Model.Players)
+    {
+        <div class="col">
+            <div class="card player-card">
+                <img src="@player.ImageThumbnailUrl" class="card-img-top" alt="@player.Name">
+                <div class="card-body player-button">
+                    <h4 class="d-grid">
+                    </h4>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <h2 class="text-start">
+                            <a class="player-link">@player.Name</a>
+                        </h2>
+                        <h5 class="text-nowrap">
+                            @player.Price.ToString()
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div> *@
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Price</th>
+            <th>Total Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int iterator = 1;
+        }
+        @foreach (var player in Model.Players)
+        {
+            <tr>
+                <td>@(iterator)</td>
+                <td><img src="@player.ImageThumbnailUrl" style="width: 50px; height: auto;"/></td>
+                <td>@player.Name</td>
+                <td>@player.Position</td>
+                <td>@player.Team</td>
+                <td>@player.Price</td>
+                <td>@player.TotalPoints</td>
+            </tr>
+            iterator++;
+        }
+    </tbody>
+</table>
