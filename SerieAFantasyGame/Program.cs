@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IStatisticsRepository, MockStatisticsRepository>();
-builder.Services.AddScoped<IPlayerRepository, MockPlayerRepository>();
+builder.Services.AddScoped<IStatisticsRepository, StatisticsRepository>();
+builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 builder.Services.AddDbContext<SerieAFantasyGameDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:SerieAFantasyGameDbContextConnection"]));
 
 var app = builder.Build();

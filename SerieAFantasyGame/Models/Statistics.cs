@@ -3,6 +3,7 @@ namespace SerieAFantasyGame.Models;
 
 public class Statistics
 {
+    public int Id { get; set; }
     public int Appearances { get; set; }
     public int Starters { get; set; }
     public int TotalMinutesPlayed { get; set; }
