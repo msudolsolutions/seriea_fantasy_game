@@ -5,7 +5,7 @@
 namespace SerieAFantasyGame.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,26 +16,26 @@ namespace SerieAFantasyGame.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Appearances = table.Column<int>(type: "int", nullable: false),
-                    Starters = table.Column<int>(type: "int", nullable: false),
-                    TotalMinutesPlayed = table.Column<int>(type: "int", nullable: false),
-                    Goals = table.Column<int>(type: "int", nullable: false),
-                    PenaltyGoals = table.Column<int>(type: "int", nullable: false),
-                    Assists = table.Column<int>(type: "int", nullable: false),
-                    YellowCards = table.Column<int>(type: "int", nullable: false),
-                    RedCards = table.Column<int>(type: "int", nullable: false),
-                    Shots = table.Column<int>(type: "int", nullable: false),
-                    ShotsOnTarget = table.Column<int>(type: "int", nullable: false),
-                    Dribbles = table.Column<int>(type: "int", nullable: false),
-                    Passes = table.Column<int>(type: "int", nullable: false),
-                    AccuratePasses = table.Column<int>(type: "int", nullable: false),
-                    KeyPasses = table.Column<int>(type: "int", nullable: false),
-                    WasFouled = table.Column<int>(type: "int", nullable: false),
-                    Tackles = table.Column<int>(type: "int", nullable: false),
-                    Fouls = table.Column<int>(type: "int", nullable: false),
-                    Interceptions = table.Column<int>(type: "int", nullable: false),
-                    CleanSheets = table.Column<int>(type: "int", nullable: false),
-                    Saves = table.Column<int>(type: "int", nullable: false)
+                    Appearances = table.Column<int>(type: "int", nullable: true),
+                    Starters = table.Column<int>(type: "int", nullable: true),
+                    TotalMinutes = table.Column<int>(type: "int", nullable: true),
+                    Goals = table.Column<int>(type: "int", nullable: true),
+                    PenaltyGoals = table.Column<int>(type: "int", nullable: true),
+                    Assists = table.Column<int>(type: "int", nullable: true),
+                    YellowCards = table.Column<int>(type: "int", nullable: true),
+                    RedCards = table.Column<int>(type: "int", nullable: true),
+                    Shots = table.Column<int>(type: "int", nullable: true),
+                    ShotsOnTarget = table.Column<int>(type: "int", nullable: true),
+                    Dribbles = table.Column<int>(type: "int", nullable: true),
+                    Passes = table.Column<int>(type: "int", nullable: true),
+                    AccuratePasses = table.Column<int>(type: "int", nullable: true),
+                    KeyPasses = table.Column<int>(type: "int", nullable: true),
+                    WasFouled = table.Column<int>(type: "int", nullable: true),
+                    Tackles = table.Column<int>(type: "int", nullable: true),
+                    Fouls = table.Column<int>(type: "int", nullable: true),
+                    Interceptions = table.Column<int>(type: "int", nullable: true),
+                    CleanSheets = table.Column<int>(type: "int", nullable: true),
+                    Saves = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,13 +49,15 @@ namespace SerieAFantasyGame.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: true),
+                    Nationality = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Team = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageThumbnailUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
                     TotalPoints = table.Column<int>(type: "int", nullable: false),
-                    StatsId = table.Column<int>(type: "int", nullable: false),
-                    IsInForm = table.Column<bool>(type: "bit", nullable: false)
+                    IsInForm = table.Column<bool>(type: "bit", nullable: false),
+                    StatsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

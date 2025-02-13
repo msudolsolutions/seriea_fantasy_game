@@ -11,8 +11,8 @@ using SerieAFantasyGame.Models;
 namespace SerieAFantasyGame.Migrations
 {
     [DbContext(typeof(SerieAFantasyGameDbContext))]
-    [Migration("20250208232213_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250213161436_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace SerieAFantasyGame.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("Age")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageThumbnailUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -39,6 +42,10 @@ namespace SerieAFantasyGame.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nationality")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -74,64 +81,64 @@ namespace SerieAFantasyGame.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccuratePasses")
+                    b.Property<int?>("AccuratePasses")
                         .HasColumnType("int");
 
-                    b.Property<int>("Appearances")
+                    b.Property<int?>("Appearances")
                         .HasColumnType("int");
 
-                    b.Property<int>("Assists")
+                    b.Property<int?>("Assists")
                         .HasColumnType("int");
 
-                    b.Property<int>("CleanSheets")
+                    b.Property<int?>("CleanSheets")
                         .HasColumnType("int");
 
-                    b.Property<int>("Dribbles")
+                    b.Property<int?>("Dribbles")
                         .HasColumnType("int");
 
-                    b.Property<int>("Fouls")
+                    b.Property<int?>("Fouls")
                         .HasColumnType("int");
 
-                    b.Property<int>("Goals")
+                    b.Property<int?>("Goals")
                         .HasColumnType("int");
 
-                    b.Property<int>("Interceptions")
+                    b.Property<int?>("Interceptions")
                         .HasColumnType("int");
 
-                    b.Property<int>("KeyPasses")
+                    b.Property<int?>("KeyPasses")
                         .HasColumnType("int");
 
-                    b.Property<int>("Passes")
+                    b.Property<int?>("Passes")
                         .HasColumnType("int");
 
-                    b.Property<int>("PenaltyGoals")
+                    b.Property<int?>("PenaltyGoals")
                         .HasColumnType("int");
 
-                    b.Property<int>("RedCards")
+                    b.Property<int?>("RedCards")
                         .HasColumnType("int");
 
-                    b.Property<int>("Saves")
+                    b.Property<int?>("Saves")
                         .HasColumnType("int");
 
-                    b.Property<int>("Shots")
+                    b.Property<int?>("Shots")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShotsOnTarget")
+                    b.Property<int?>("ShotsOnTarget")
                         .HasColumnType("int");
 
-                    b.Property<int>("Starters")
+                    b.Property<int?>("Starters")
                         .HasColumnType("int");
 
-                    b.Property<int>("Tackles")
+                    b.Property<int?>("Tackles")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalMinutesPlayed")
+                    b.Property<int?>("TotalMinutes")
                         .HasColumnType("int");
 
-                    b.Property<int>("WasFouled")
+                    b.Property<int?>("WasFouled")
                         .HasColumnType("int");
 
-                    b.Property<int>("YellowCards")
+                    b.Property<int?>("YellowCards")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
