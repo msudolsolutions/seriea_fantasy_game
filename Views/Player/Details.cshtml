@@ -1,0 +1,28 @@
+@model PlayerWithStatisticsViewModel
+
+@{
+    ViewData["Title"] = $"{Model.PlayerWithoutStats.Name} Statistics";
+}
+
+<h2>@Model.PlayerWithoutStats.Name - Statistics</h2>
+<p><strong>Position:</strong> @Model.PlayerWithoutStats.Position</p>
+<p><strong>Price:</strong> @Model.PlayerWithoutStats.Price cr</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Statistic</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prop in Model.Stats.GetType().GetProperties())
+        {
+            <tr>
+                <td>@prop.Name</td>
+                <td>@prop.GetValue(Model.Stats)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index" class="btn btn-primary">Back to List</a>

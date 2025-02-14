@@ -16,4 +16,17 @@ public class PlayerController(IPlayerRepository playerRepository, IStatisticsRep
         PlayerListViewModel playerListViewModel = new(_playerRepository.AllPlayers, "Round 16");
         return View(playerListViewModel);
     }
+
+    public IActionResult Details(int id)
+    {
+        Player player = _playerRepository.GetPlayerById(id);
+        Statistics stats = _statisticsRepository.GetStatisticsById(id);
+
+        if (player == null || stats == null)
+        {
+            return NotFound();
+        }
+        PlayerWithStatisticsViewModel playerWtihStatistics = new(player, stats);
+        return View(playerWtihStatistics);
+    }
 }

@@ -10,4 +10,9 @@ public class MockStatisticsRepository : IStatisticsRepository
             new Statistics{Id = 2, Appearances = 9, Starters = 2, TotalMinutes = 340, Goals = 0, PenaltyGoals = 0, Assists = 1, YellowCards = 2, RedCards = 0, Shots = 2, ShotsOnTarget = 0, Dribbles = 2, Passes = 83, AccuratePasses = 71, KeyPasses = 0, WasFouled = 17, Tackles = 19, Fouls = 9, Interceptions = 13, CleanSheets = 0, Saves = 0},
             new Statistics{Id = 3, Appearances = 15, Starters = 13, TotalMinutes = 1067, Goals = 11, PenaltyGoals = 5, Assists = 3, YellowCards = 1, RedCards = 1, Shots = 34, ShotsOnTarget = 21, Dribbles = 14, Passes = 194, AccuratePasses = 166, KeyPasses = 4, WasFouled = 22, Tackles = 3, Fouls = 2, Interceptions = 5, CleanSheets = 0, Saves = 0}
         };
+    
+    public Statistics? GetStatisticsById(int statisticsId)
+    {
+        return AllStatistics.FirstOrDefault(s => s.Id == statisticsId);
+    }
 }

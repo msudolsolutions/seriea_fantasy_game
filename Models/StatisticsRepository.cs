@@ -7,4 +7,9 @@ public class StatisticsRepository(SerieAFantasyGameDbContext serieAFantasyGameDb
 
     public IEnumerable<Statistics> AllStatistics =>
         _serieAFantasyGameDbContext.StatisticsCollection;
+
+    public Statistics? GetStatisticsById(int statisticsId)
+    {
+        return _serieAFantasyGameDbContext.StatisticsCollection.FirstOrDefault(s => s.Id == statisticsId);
+    }
 }
